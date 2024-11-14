@@ -69,7 +69,7 @@ DeKXP leverages decentralized technologies to provide transparency, security, an
 - Node.js with Express.js - To handle API requests and session management
 - PostgreSQL - For non-critical data storage (user details, session logs, reviews)
 
-## Contribute
+## Contributing
 
 To get a local copy of the project up and running, follow these steps.
 
@@ -96,4 +96,8 @@ To get a local copy of the project up and running, follow these steps.
 
 2. **Environment Variables**
 
-Contact the admin for secret variables. Checkout for the `.env.example` file for secret variables needed.
+   Contact the admin for secret variables. Checkout for the `.env.example` file for secret variables needed.
+
+## License
+
+Update on copyright coming soon.
