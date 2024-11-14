@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## DeKXP - Decentralized Knowledge Exchange Platform
 
-## Getting Started
+DeKXP (Decentralized Knowledge Exchange Platform) is a blockchain-based platform for knowledge sharing, allowing learners and tutors to interact directly without intermediaries.
 
-First, run the development server:
+DeKXP leverages decentralized technologies to provide transparency, security, and monetization for educational content. Tutors offer consultations, online courses, and educational content, while learners can book sessions, purchase courses, and earn rewards by engaging with the platform.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Table of Contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Decentralized Profiles & Credentials**  
+   Users can create decentralized profiles using Decentralized Identity (DID) solutions, showcasing qualifications (for tutors) and learning history (for students).
 
-## Learn More
+2. **NFT-based Course Ownership**  
+   Tutors can tokenize their courses as NFTs, enabling ownership, resale, and royalty options when reused on the platform.
 
-To learn more about Next.js, take a look at the following resources:
+3. **Consultation Services**  
+   Book one-on-one or group sessions directly with tutors, managed by smart contracts that handle scheduling and payments.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Payment with Escrow**  
+   Payments are secured in an escrow managed by a smart contract and released after session completion.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. **Subscription Model**  
+   Tutors can offer a subscription option, granting students unlimited access to their courses.
 
-## Deploy on Vercel
+6. **Decentralized Storage**  
+   Educational content is stored securely on IPFS or Arweave, ensuring tamper-proof, censorship-resistant access.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+7. **DAO for Governance**  
+   Platform governance is controlled by users through a decentralized autonomous organization (DAO) for platform improvements and content policies.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+8. **Rating & Review System**  
+   Ratings and reviews are stored on-chain, ensuring credibility.
+
+9. **Incentivized Learning**  
+   Students earn tokens for course completion, reviews, and community contributions.
+
+10. **Referral and Rewards System**  
+    Tutors and students can invite new users to the platform and earn referral rewards.
+
+## Tech Stack
+
+**Frontend**
+
+- [Next.js](https://nextjs.org/) - React Framework for building UI
+- [ShadCN](https://ui.shadcn.com/) - Component library for styling and UI components
+
+**Blockchain Layer**
+
+- Lisk SDK (Custom blockchain and smart contracts for payments, profiles, and content ownership)
+
+**Storage**
+
+- IPFS/Arweave - Decentralized storage for educational materials
+
+**Identity & Authentication**
+
+- Decentralized Identity (DID) solutions (e.g., Ceramic or uPort)
+
+**Backend**
+
+- Node.js with Express.js - To handle API requests and session management
+- PostgreSQL - For non-critical data storage (user details, session logs, reviews)
+
+## Contribute
+
+To get a local copy of the project up and running, follow these steps.
+
+### Prerequisites
+
+- **Node.js** (version 14+)
+- **npm**
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/yourusername/dekxp_frontend.git
+
+   cd dekxp_frontend
+
+   // installing deps
+   npm install
+
+   // starting the server
+   npm run dev
+   ```
+
+2. **Environment Variables**
+
+Contact the admin for secret variables. Checkout for the `.env.example` file for secret variables needed.
