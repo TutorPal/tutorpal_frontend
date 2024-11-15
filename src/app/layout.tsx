@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "DeXP",
+  title: "Tutorpal",
   description: "A decentralized learning platform",
 };
 
