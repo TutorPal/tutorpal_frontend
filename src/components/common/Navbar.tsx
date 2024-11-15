@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
+import ConnectWalletButton from "./ConnectWalletButton";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,9 +36,7 @@ const Navbar = () => {
 
         <div className="hidden md:block">
           <Link href="#get-started">
-            <button className="bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-md text-white font-semibold">
-              Get Started
-            </button>
+            <ConnectWalletButton />
           </Link>
         </div>
 
