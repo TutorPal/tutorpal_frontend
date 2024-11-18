@@ -29,6 +29,9 @@ export default function ConsultationsPage() {
 
   return (
     <div className="container mx-auto p-4">
+
+        <main className='max-w-6xl mx-auto px-6'>
+
       <h1 className="text-3xl font-bold mb-6">Tutorpal Consultations</h1>
 
       {/* Search Bar */}
@@ -107,6 +110,7 @@ export default function ConsultationsPage() {
           </CardContent>
         </Card>
       </section>
+        </main>
     </div>
   )
 }
