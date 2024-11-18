@@ -1,7 +1,9 @@
+
 "use client";
 import { useState, ChangeEvent, FormEvent } from "react";
 import axios from "axios";
-import Link from "next/link";
+import Link from "next/link"; 
+
 
 interface Metadata {
     title: string;
@@ -11,7 +13,7 @@ interface Metadata {
     author?: string;
     tags?: string;
 }
-
+const { NEXT_PUBLIC_GATEWAY_URL, PINATA_SECRET_API_KEY, PINATA_JWT, PINATA_API_KEY } = process.env;
 const UploadForm: React.FC = () => {
     const [file, setFile] = useState<File | null>(null);
     const [metadata, setMetadata] = useState<Metadata>({
@@ -43,7 +45,7 @@ const UploadForm: React.FC = () => {
         setErrorMessage("");
 
         if (!file) {
-            setErrorMessage("Please upload a file.");
+            setErrorMessage("Please select a file to upload.");
             return;
         }
 
@@ -57,12 +59,20 @@ const UploadForm: React.FC = () => {
         formData.append("pinataMetadata", JSON.stringify(pinataMetadata));
 
         try {
-            const response = await axios.post("/api/ipfs-uploads", formData, {
+            const response = await axios.post("https://uploads.pinata.cloud/v3/files", formData, {
                 headers: { "Content-Type": "multipart/form-data",
-                    "pinataJwt": process.env.PINATA_JWT,
+                    Authorization: `Bearer ${process.env.PINATA_JWT}`,
                     "pinataGateway": process.env.NEXT_PUBLIC_GATEWAY_URL,
                  },
             });
+
+            // https://uploads.pinata.cloud/v3/files
+            // const response = await axios.post("/api/ipfs-uploads", formData, {
+            //     headers: { "Content-Type": "multipart/form-data",
+            //         "pinataJwt": process.env.PINATA_JWT,
+            //         "pinataGateway": process.env.NEXT_PUBLIC_GATEWAY_URL,
+            //      },
+            // });
             console.log({response});
       setResponseUrls((prev)=> ({
         fileUrl: response.data,
