@@ -5,6 +5,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
 import { Popover, PopoverTrigger, PopoverContent } from "../ui/popover";
 import ConnectWalletButton from "./ConnectWalletButton";
+import { BiPencil } from "react-icons/bi";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +18,7 @@ const Navbar = () => {
     <nav className="bg-gray-900 text-gray-300 py-4">
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
         <div className="text-2xl font-bold text-white">
-          <Link href="/">DeKXP</Link>
+          <Link href="/" className="flex items-center"><span>TutorPal</span> <BiPencil /></Link>
         </div>
 
         <div className="hidden md:flex space-x-8">
