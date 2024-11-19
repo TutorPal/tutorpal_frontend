@@ -57,7 +57,7 @@ const Navbar = () => {
                 Courses
               </Link>
               <Link
-                href="#consultations"
+                href="/consultations"
                 onClick={() => setIsOpen(false)}
                 className="block px-6 py-3 hover:bg-gray-700"
               >

@@ -1,16 +1,40 @@
 "use client";
 
 import { thirdwebFrontendClient } from "@/utils/thirdweb/client";
-import { ConnectButton } from "thirdweb/react";
+import { ConnectButton, useActiveAccount, useConnect, useConnectedWallets, useDisconnect } from "thirdweb/react";
 import { createWallet } from "thirdweb/wallets";
-import { sepolia } from "thirdweb/chains";
+import { sepolia, defineChain } from "thirdweb/chains";
 
 import { useToast } from "@/hooks/use-toast";
 import { formatAddress } from "@/utils/formatAddress";
 import { ToastAction } from "../ui/toast";
+import { useUserProfile } from "@/hooks/useUserProfile";
+import { useEffect, useState } from "react";
+import { RegistrationModal } from "../RegistrationModal";
 
 const ConnectWalletButton = () => {
   const { toast } = useToast();
+
+  // const account = useActiveAccount();
+  const connectedWallet = useConnectedWallets();
+  const { connect } = useConnect();
+  const { disconnect } = useDisconnect();
+
+  // const handleConnect = async () => {
+  //   const wallet = createWallet()
+  // }
+
+  const account = useActiveAccount();
+  const address = account?.address;
+  const { profile, isLoading } = useUserProfile();
+  const [showRegistration, setShowRegistration] = useState(false);
+
+  useEffect(() => {
+    if (address && !isLoading && !profile?.isRegistered) {
+      setShowRegistration(true);
+    }
+  }, [address, profile, isLoading]);
+
   return (
     <div>
       <ConnectButton
@@ -24,9 +48,9 @@ const ConnectWalletButton = () => {
           createWallet("com.binance"),
           createWallet("com.trustwallet.app"),
         ]}
-        chain={sepolia}
+        chain={defineChain(4202)}
         accountAbstraction={{
-          chain: sepolia,
+          chain: defineChain(4202),
           sponsorGas: true,
         }}
         theme="dark"
@@ -58,6 +82,10 @@ const ConnectWalletButton = () => {
             ),
           });
         }}
+      />
+      <RegistrationModal 
+        open={showRegistration} 
+        onClose={() => setShowRegistration(false)} 
       />
     </div>
   );
