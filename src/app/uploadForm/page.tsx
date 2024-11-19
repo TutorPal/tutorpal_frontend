@@ -60,7 +60,7 @@ const UploadForm: React.FC = () => {
             const response = await axios.post("/api/ipfs-uploads", formData, {
                 headers: { "Content-Type": "multipart/form-data",
                     "pinataJwt": process.env.PINATA_JWT,
-                    "pinataGateway": process.env.NEXT_PUBLIC_GATEWAY_URL,
+                    "pinataGateway": process.env.NEXT_PUBLIC_IPFS_URL,
                  },
             });
             console.log({response});
