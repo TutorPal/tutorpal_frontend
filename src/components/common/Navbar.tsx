@@ -38,6 +38,7 @@ const Navbar = () => {
 
         <div className="hidden md:block">
           <ConnectWalletButton />
+          
         </div>
 
         <div className="md:hidden">
