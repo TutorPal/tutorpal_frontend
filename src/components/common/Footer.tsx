@@ -2,7 +2,7 @@ import { FaTwitter, FaLinkedin, FaInstagram, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-10">
+    <footer className="border-2 w-full h-[300px] bg-gray-900 text-gray-300 py-10">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         <div>
           <h2 className="text-lg font-semibold text-white mb-4">About DeKXP</h2>
