@@ -24,6 +24,8 @@ interface Metadata {
     } | null>(null);
     const [errorMessage, setErrorMessage] = useState<string>("");
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setMetadata({ ...metadata, [name]: value });
@@ -38,6 +40,7 @@ interface Metadata {
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         setErrorMessage("");
+        setIsLoading(true)
 
         if (!file) {
             setErrorMessage("Please upload a file.");
@@ -64,6 +67,7 @@ interface Metadata {
                 fileUrl: response.data.fileUrl,
                 metadataUrl: response.data.metadataUrl || "N/A"
             });
+            
         } catch (error: unknown) {
             if (axios.isAxiosError(error)) {
                 console.error("Axios error:", error.response?.data || error.message);
@@ -75,6 +79,8 @@ interface Metadata {
                 console.error("Unknown error:", error);
                 setErrorMessage("An unknown error occurred. Please contact support.");
             }
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -122,8 +128,9 @@ interface Metadata {
                 <button
                     type="submit"
                     className="w-full bg-blue-600 text-white p-2 rounded"
+                    disabled={isLoading}
                 >
-                    Upload
+                    {isLoading ? "Loading..." : "Upload" }
                 </button>
                 {errorMessage && <p className="text-red-500 mt-2">{errorMessage}</p>}
             </form>
