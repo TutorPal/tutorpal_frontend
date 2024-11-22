@@ -22,7 +22,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex space-x-8">
-          <Link href="#courses" className="hover:text-white">
+          <Link href="/courses" className="hover:text-white">
             Courses
           </Link>
           <Link href="/consultations" className="hover:text-white">
@@ -31,8 +31,8 @@ const Navbar = () => {
           <Link href="#about" className="hover:text-white">
             About Us
           </Link>
-          <Link href="#support" className="hover:text-white">
-            Support
+          <Link href="/student-profile" className="hover:text-white">
+            Profile
           </Link>
         </div>
 
@@ -51,7 +51,7 @@ const Navbar = () => {
 
             <PopoverContent className="bg-gray-800 text-gray-300 w-full text-center">
               <Link
-                href="#courses"
+                href="/courses"
                 onClick={() => setIsOpen(false)}
                 className="block px-6 py-3 hover:bg-gray-700"
               >
