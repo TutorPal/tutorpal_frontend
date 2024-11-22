@@ -28,6 +28,9 @@ const Navbar = () => {
           <Link href="/consultations" className="hover:text-white">
             Consultations
           </Link>
+          <Link href="/tutor" className="hover:text-white">
+            Tutor Profile
+          </Link>
           <Link href="#about" className="hover:text-white">
             About Us
           </Link>
