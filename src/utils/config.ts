@@ -1,3 +1,4 @@
+"server only";
 import { http, createConfig } from 'wagmi'
 import { mainnet, sepolia, liskSepolia } from 'wagmi/chains'
 
@@ -9,7 +10,6 @@ export const config = createConfig({
     [liskSepolia.id]: http(),
   },
 })
-"server only";
 
 import { PinataSDK } from "pinata-web3";
 export const pinata = new PinataSDK({
