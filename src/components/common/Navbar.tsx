@@ -6,9 +6,16 @@ import Link from "next/link";
 import { Popover, PopoverTrigger, PopoverContent } from "../ui/popover";
 import ConnectWalletButton from "./ConnectWalletButton";
 import { BiPencil } from "react-icons/bi";
+import { useRecoilState } from "recoil";
+import { userProfileState } from "@/store/atoms/userProfileAtom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const [user] = useRecoilState(userProfileState);
+  // const user = useRecoilValue(userProfileState)
+
+  const isInstructor = user[1] === 2;
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -34,9 +41,11 @@ const Navbar = () => {
           <Link href="#about" className="hover:text-white">
             About Us
           </Link>
+          {!isInstructor &&
           <Link href="/student-profile" className="hover:text-white">
             Profile
           </Link>
+          }
         </div>
 
         <div className="hidden md:block">

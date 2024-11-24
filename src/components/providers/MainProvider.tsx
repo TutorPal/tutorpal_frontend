@@ -20,6 +20,7 @@ import {
   base,
   liskSepolia
 } from 'wagmi/chains';
+import { RecoilRoot } from 'recoil';
 
 interface MainProviderProps {
   children: ReactNode;
@@ -44,12 +45,14 @@ const MainProvider = ({ children }: Readonly<MainProviderProps>) => {
   return (
     <WagmiProvider config={config}>
       <ThirdwebProviderConfig>
+        <RecoilRoot>
         <QueryClientProvider client={queryClient}>
         <RainbowKitProvider>
           {children}
           <Toaster />
         </RainbowKitProvider>
         </QueryClientProvider>
+        </RecoilRoot>
       </ThirdwebProviderConfig>
     </WagmiProvider>
   );
