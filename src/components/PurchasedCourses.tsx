@@ -14,7 +14,7 @@ export function PurchasedCourses() {
       <Card>
         <CardHeader>
           <CardTitle>My Courses</CardTitle>
-          <CardDescription>You haven't purchased any courses yet.</CardDescription>
+          <CardDescription>You haven&apos;t purchased any courses yet.</CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-center text-muted-foreground mb-4">

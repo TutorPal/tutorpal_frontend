@@ -3,7 +3,15 @@ import Link from 'next/link'
 import React from 'react'
 import { Button } from './ui/button'
 
-const CourseCard = ({ course }: {course: any}) => {
+interface ICourse {
+    id: string | number;
+    title: string;
+    instructor: string;
+    price: string | number;
+
+}
+
+const CourseCard = ({ course }:{ course: ICourse }) => {
   return (
     <>
         <div key={course.id} className="bg-white p-6 rounded-lg shadow-md">

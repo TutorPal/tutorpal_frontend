@@ -4,7 +4,7 @@ import Navbar from '@/components/common/Navbar'
 // import { Navigation } from '@/components/navigation'
 // import { Button } from "@/components/ui/button"
 // import Link from 'next/link'
-import { useWatchContractEvent, useReadContract } from 'wagmi'
+import { useReadContract } from 'wagmi'
 import { tutorPalAbi } from '@/abi/tutorPalAbi'
 import { tutorPalMarketAddress } from '@/utils/constants'
 import { useState } from 'react'
@@ -17,17 +17,17 @@ const mockCourses = [
 
 export default function Courses() {
 
-    const [courses, setCourses] = useState<any[]>([]);
+    const [courses] = useState<string[]>([]);
 
-    useWatchContractEvent({
-        address: tutorPalMarketAddress,
-        abi: tutorPalAbi,
-        eventName: 'CourseListed',
-        onLogs(logs) {
-            setCourses((prevEvents) => [...prevEvents, ...logs]);
-          console.log('New logs!', logs)
-        },
-    })
+    // useWatchContractEvent({
+    //     address: tutorPalMarketAddress,
+    //     abi: tutorPalAbi,
+    //     eventName: 'CourseListed',
+    //     onLogs(logs) {
+    //         setCourses((prevEvents) => [...prevEvents, ...logs]);
+    //       console.log('New logs!', logs)
+    //     },
+    // })
 
     const { data, isLoading } = useReadContract({
         abi: tutorPalAbi,

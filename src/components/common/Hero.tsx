@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 import { Button } from "../ui/button";
-import { FaChalkboardTeacher, FaUserGraduate } from "react-icons/fa";
+// import { FaChalkboardTeacher, FaUserGraduate } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
