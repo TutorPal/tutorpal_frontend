@@ -1,8 +1,9 @@
 "use client"
 import React from "react";
 import { Button } from "../ui/button";
-import { FaChalkboardTeacher, FaUserGraduate } from "react-icons/fa";
+// import { FaChalkboardTeacher, FaUserGraduate } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Hero = () => {
 
@@ -25,12 +26,20 @@ const Hero = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-          <Button className="flex items-center gap-2 bg-indigo-800 hover:bg-indigo-700 px-6 py-3 text-lg font-semibold rounded-md w-full sm:w-auto">
+          {/* <Button className="flex items-center gap-2 bg-indigo-800 hover:bg-indigo-700 px-6 py-3 text-lg font-semibold rounded-md w-full sm:w-auto">
             <FaUserGraduate /> Explore as Learner
-          </Button>
-          <Button className="flex items-center gap-2 bg-pink-800 hover:bg-pink-700 px-6 py-3 text-lg font-semibold rounded-md w-full sm:w-auto">
+          </Button> */}
+            <Link href="/courses">
+              <Button className="text-white border-[1px] border-white">Browse Courses</Button>
+            </Link>
+
+            <Link href="/courses/create">
+              <Button className="text-white border-[1px] border-white">Create a Course</Button>
+            </Link>
+
+          {/* <Button className="flex items-center gap-2 bg-pink-800 hover:bg-pink-700 px-6 py-3 text-lg font-semibold rounded-md w-full sm:w-auto">
             <FaChalkboardTeacher /> Join as Tutor
-          </Button>
+          </Button> */}
 
           <button
             type="button"

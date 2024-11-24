@@ -10,6 +10,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 // import contractABI from '@/abi/tutorPalAbi'
 import { tutorPalAbi } from '@/abi/tutorPalAbi';
 import { tutorPalMarketAddress } from '@/utils/constants';
+import { userProfileState } from '@/store/atoms/userProfileAtom';
+import { useRecoilState } from 'recoil';
 
 // Enum type matching your Solidity enum
 const RoleType = {
@@ -23,6 +25,8 @@ const UserRegistrationFlow = () => {
   const [isRegistrationModalOpen, setIsRegistrationModalOpen] = useState(false);
   const [displayName, setDisplayName] = useState('');
   const [selectedRole, setSelectedRole] = useState(RoleType.NotRegistered);
+
+  const [user, setUser] = useRecoilState(userProfileState);
 
   // Read contract hook to check user registration status
   const { data: userProfile, refetch } = useReadContract({
@@ -42,7 +46,9 @@ const UserRegistrationFlow = () => {
   useEffect(() => {
     console.log("REG FLOW RUN")
     console.log("PROFILE", userProfile)
+    console.log("USER", user)
     if (isConnected && userProfile) {
+        setUser([...userProfile])
         const registered = userProfile[2] as boolean;
     //   const isRegistered = userProfile[2]; // third value is isRegistered
       if (!registered) {
