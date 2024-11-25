@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { Plus, BookOpen, Video, FileText, Calendar} from 'lucide-react';
 import Navbar from '@/components/common/Navbar';
+import Link from 'next/link';
 
 
 
@@ -44,10 +45,12 @@ const TutorProfile = () => {
       
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">Tutor Dashboard</h1>
+        <Link href={'/courses/create'}>
         <Button className="flex items-center gap-2">
           <Plus size={16} />
           Create New Course
         </Button>
+        </Link>
       </div>
 
       <Tabs defaultValue="sessions" className="w-full">
