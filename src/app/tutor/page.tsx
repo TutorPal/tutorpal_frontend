@@ -1,16 +1,19 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
-import { Plus, BookOpen, Video, FileText, Calendar, } from 'lucide-react';
+import { Plus, BookOpen, Video, FileText, Calendar} from 'lucide-react';
 import Navbar from '@/components/common/Navbar';
 import Link from 'next/link';
+
+
 
 const TutorProfile = () => {
   const [sessionOffers, setSessionOffers] = useState([
     { id: 1, studentName: 'Alice Brown', course: 'Mathematics 101', dateTime: '2024-11-25 14:00', status: 'pending' },
     { id: 2, studentName: 'Bob Smith', course: 'Physics Basics', dateTime: '2024-11-26 15:30', status: 'pending' },
+    { id: 3, studentName: 'Carol Davis', course: 'Mathematics 101', dateTime: '2024-11-24 13:00', status: 'accepted' },
   ]);
 
   const [courses] = useState([
@@ -32,6 +35,8 @@ const TutorProfile = () => {
       )
     );
   };
+
+
 
   return (
 <>
@@ -83,7 +88,7 @@ const TutorProfile = () => {
                         <div className="space-x-2">
                           <Button
                             onClick={() => handleSessionResponse(offer.id, true)}
-                            className="bg-green-600 hover:bg-green-700"
+                            className="bg-green-600 hover:bg-green-700 text-white"
                           >
                             Accept
                           </Button>
@@ -96,11 +101,21 @@ const TutorProfile = () => {
                           </Button>
                         </div>
                       ) : (
-                        <span className={`px-3 py-1 rounded-full text-sm ${
-                          offer.status === 'accepted' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-                        }`}>
-                          {offer.status.charAt(0).toUpperCase() + offer.status.slice(1)}
-                        </span>
+                        <div className="flex items-center gap-2">
+                          <span className={`px-3 py-1 rounded-full text-sm ${
+                            offer.status === 'accepted' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                          }`}>
+                            {offer.status.charAt(0).toUpperCase() + offer.status.slice(1)}
+                          </span>
+                          {offer.status === 'accepted' && (
+                            <a href="/video-session"> <Button
+                              className="bg-blue-600 hover:bg-blue-700 text-white"
+                            >
+                              Start Session
+                            </Button></a>
+                            
+                          )}
+                        </div>
                       )}
                     </div>
                   </Card>
