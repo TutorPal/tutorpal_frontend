@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useReadContract } from "wagmi";
 
 export const useCourses = (tutorPalAbi: any, tutorPalMarketAddress: any) => {
-    const [courses, setCourses] = useState([]);
+    const [courses] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
   
     // Get the total count of courses
@@ -33,41 +33,41 @@ export const useCourses = (tutorPalAbi: any, tutorPalMarketAddress: any) => {
     //   args: [0], // Start with first course
     // });
   
-    const fetchAllCourses = async () => {
-      if (!courseCount) return;
+    // const fetchAllCourses = async () => {
+    //   if (!courseCount) return;
 
-      setIsLoading(true);
-      try {
-        const count = Number(courseCount);
-        const fetchedCourses = [] as any;
+    //   setIsLoading(true);
+    //   try {
+    //     const count = Number(courseCount);
+    //     const fetchedCourses = [] as any;
         
-        for (let i = 0; i < count; i++) {
-          const { data: course, isLoading, isSuccess } = useReadContract({
-              abi: tutorPalAbi,
-              address: tutorPalMarketAddress,
-              functionName: 'getCoursebyId',
-              args: [i]
-          });
+    //     for (let i = 0; i < count; i++) {
+    //       const { data: course, isLoading, isSuccess } = useReadContract({
+    //           abi: tutorPalAbi,
+    //           address: tutorPalMarketAddress,
+    //           functionName: 'getCoursebyId',
+    //           args: [i]
+    //       });
 
-          if (course && !isLoading && isSuccess) {
-            fetchedCourses.push({
-              ...course,
-              id: i.toString()
-            });
-          }
-        }
+    //       if (course && !isLoading && isSuccess) {
+    //         fetchedCourses.push({
+    //           ...course,
+    //           id: i.toString()
+    //         });
+    //       }
+    //     }
         
-        setCourses(fetchedCourses);
-      } catch (error) {
-        console.error('Error fetching courses:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    useEffect(() => {
+    //     setCourses(fetchedCourses);
+    //   } catch (error) {
+    //     console.error('Error fetching courses:', error);
+    //   } finally {
+    //     setIsLoading(false);
+    //   }
+    // };
+    // useEffect(() => {
   
-      fetchAllCourses();
-    }, [courseCount, tutorPalAbi, tutorPalMarketAddress]);
+    //   fetchAllCourses();
+    // }, [courseCount, tutorPalAbi, tutorPalMarketAddress]);
   
     return { courses, isLoading };
   };
