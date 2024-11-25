@@ -1,9 +1,9 @@
 "use client"
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
-import { Plus, BookOpen, Video, FileText, Calendar, Mic, MicOff, Camera, CameraOff, PhoneOff} from 'lucide-react';
+import { Plus, BookOpen, Video, FileText, Calendar} from 'lucide-react';
 import Navbar from '@/components/common/Navbar';
 
 
@@ -35,19 +35,7 @@ const TutorProfile = () => {
     );
   };
 
-  const [activeSession, setActiveSession] = useState(null);
-  const [showVideoDialog, setShowVideoDialog] = useState(false);
 
-  const startSession = (sessionId) => {
-    const session = sessionOffers.find(offer => offer.id === sessionId);
-    setActiveSession(session);
-    setShowVideoDialog(true);
-  };
-
-  const endSession = () => {
-    setShowVideoDialog(false);
-    setActiveSession(null);
-  };
 
   return (
 <>
