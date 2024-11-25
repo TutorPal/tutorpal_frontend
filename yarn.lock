@@ -2188,7 +2188,7 @@
   dependencies:
     "@radix-ui/react-primitive" "2.0.0"
 
-"@radix-ui/react-popover@^1.0.7", "@radix-ui/react-popover@^1.1.2":
+"@radix-ui/react-popover@^1.1.2":
   version "1.1.2"
   resolved "https://registry.npmjs.org/@radix-ui/react-popover/-/react-popover-1.1.2.tgz"
   integrity sha512-u2HRUyWW+lOiA2g0Le0tMmT55FGOEWHwPFt1EPfbLly7uXQExFo5duNKqG2DzmFXIdqOeNd+TpE8baHWJCyP9w==
@@ -2984,11 +2984,6 @@
   dependencies:
     undici-types "~6.19.2"
 
-"@types/npm-events-package@npm:@types/events@^3.0.3":
-  version "3.0.3"
-  resolved "https://registry.npmjs.org/@types/events/-/events-3.0.3.tgz"
-  integrity sha512-trOc4AAUThEz9hapPtSd7wf5tiQKvTtu5b371UxXdTuqzIh0ArcRspRP0i0Viu+LXstIQ1z96t1nsPxT9ol01g==
-
 "@types/parse-json@^4.0.0":
   version "4.0.2"
   resolved "https://registry.npmjs.org/@types/parse-json/-/parse-json-4.0.2.tgz"
@@ -3006,7 +3001,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.8.0 || ^17.0.0 || ^18.0.0", "@types/react@^16.9.0 || ^17.0.0 || ^18.0.0", "@types/react@^18", "@types/react@^18.2.25", "@types/react@^18.2.6", "@types/react@>=16.8", "@types/react@>=18.0.0":
+"@types/react@*", "@types/react@^16.8.0 || ^17.0.0 || ^18.0.0", "@types/react@^16.9.0 || ^17.0.0 || ^18.0.0", "@types/react@^18", "@types/react@^18.2.6", "@types/react@>=16.8", "@types/react@>=18.0.0":
   version "18.3.12"
   resolved "https://registry.npmjs.org/@types/react/-/react-18.3.12.tgz"
   integrity sha512-D2wOSq/d6Agt28q7rSI3jhU7G6aiuzljDGZ2hTZHIkrTLUI+AF3WMeKkEZ9nN2fkBAlcktT6vcZjDFiIhMYEQw==
@@ -3023,11 +3018,6 @@
   version "2.0.7"
   resolved "https://registry.npmjs.org/@types/trusted-types/-/trusted-types-2.0.7.tgz"
   integrity sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==
-
-"@types/use-sync-external-store@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.npmjs.org/@types/use-sync-external-store/-/use-sync-external-store-0.0.3.tgz"
-  integrity sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==
 
 "@types/yargs-parser@*":
   version "21.0.3"
@@ -3586,40 +3576,36 @@
     "@walletconnect/window-getters" "^1.0.1"
     tslib "1.14.1"
 
-"@whereby.com/browser-sdk@^3.10.0":
-  version "3.10.0"
-  resolved "https://registry.npmjs.org/@whereby.com/browser-sdk/-/browser-sdk-3.10.0.tgz"
-  integrity sha512-3Rs5rUEd+hsGktMDBh304ccqEEfqhqrSM03iTTyhgqEX2A9U3WWVJ1NEmsSGyOB3GhIM14qw6FaYsVGUVWmYxA==
+"@whereby.com/browser-sdk@^2.13.0":
+  version "2.13.0"
+  resolved "https://registry.npmjs.org/@whereby.com/browser-sdk/-/browser-sdk-2.13.0.tgz"
+  integrity sha512-zKb+Lbb25yTleo7GgIIouoKIhkw/LreKtQjOXGt+CZul3yxmVG342uy24iukQM4Cm70OBSj9QzpYc2ngnRYlEQ==
   dependencies:
-    "@radix-ui/react-popover" "^1.0.7"
     "@reduxjs/toolkit" "^2.2.3"
-    "@whereby.com/core" "0.29.1"
-    clsx "^2.1.1"
+    "@whereby.com/core" "0.15.2"
     heresy "^1.0.4"
-    react-redux "^9.1.1"
-    runes "^0.4.3"
 
-"@whereby.com/core@0.29.1":
-  version "0.29.1"
-  resolved "https://registry.npmjs.org/@whereby.com/core/-/core-0.29.1.tgz"
-  integrity sha512-NltJD9nyZ56+c/yG7T4vYJxiFzduRr5Lpgob00ZNevPQDafdOO/llcjThtxElO2lnQNM/2daZqXqDucNdmE0Dg==
+"@whereby.com/core@0.15.2":
+  version "0.15.2"
+  resolved "https://registry.npmjs.org/@whereby.com/core/-/core-0.15.2.tgz"
+  integrity sha512-N3O8n3pvvHuo9GG/H9+cb8vtaur0NmItFpHlReMV1NGROftUabwYAy9cuiSE+hE/SgAL++sSovAm1DfDhtM4Yg==
   dependencies:
     "@reduxjs/toolkit" "^2.2.3"
-    "@whereby.com/media" "1.17.3"
+    "@whereby.com/media" "1.4.1"
     axios "^1.2.3"
     btoa "^1.2.1"
     events "^3.3.0"
 
-"@whereby.com/media@1.17.3":
-  version "1.17.3"
-  resolved "https://registry.npmjs.org/@whereby.com/media/-/media-1.17.3.tgz"
-  integrity sha512-2wSyp0N2tX+8JIDyj6KJ5WcWud0NIl7KJXQROrQ6bTGGjzAkx6dfV1Dl/LFPZjL6JVG2alf/2tfa/NiSla5P4A==
+"@whereby.com/media@1.4.1":
+  version "1.4.1"
+  resolved "https://registry.npmjs.org/@whereby.com/media/-/media-1.4.1.tgz"
+  integrity sha512-hKWp0tOThFyEoOTblfJ/UFwlFvAAnaGzAGf0Xu2gm/LUBlJDldDKsQavfAcmjII9fM8gUQvjRZRnSxSJPmlsrg==
   dependencies:
     check-ip "^1.1.1"
     events "^3.3.0"
     ip-address "^9.0.5"
-    mediasoup-client "3.7.12"
-    rtcstats "github:whereby/rtcstats#5.4.1"
+    mediasoup-client "3.7.3"
+    rtcstats "github:whereby/rtcstats#5.4.0"
     sdp "^3.2.0"
     sdp-transform "^2.14.2"
     socket.io-client "4.7.2"
@@ -6881,22 +6867,21 @@ media-query-parser@^2.0.2:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-mediasoup-client@3.7.12:
-  version "3.7.12"
-  resolved "https://registry.npmjs.org/mediasoup-client/-/mediasoup-client-3.7.12.tgz"
-  integrity sha512-AuQ3tgKGGQf7AmzzQShHNdYKewhLDof4MDC3JTNLFKvqEGzAZDBGgRs+m1zRfqgsSlGcd9xaf79Z7hs+Wd/A3Q==
+mediasoup-client@3.7.3:
+  version "3.7.3"
+  resolved "https://registry.npmjs.org/mediasoup-client/-/mediasoup-client-3.7.3.tgz"
+  integrity sha512-LjGoLqK0FfO0TOlQ/6I1Ato2TMj7CiIN/ifpZlmL6od1pdv4IfvUHizJBomqhr4qJW5m7oZwZaW36ituXD6D/Q==
   dependencies:
     "@types/debug" "^4.1.12"
-    "@types/npm-events-package" "npm:@types/events@^3.0.3"
     awaitqueue "^3.0.2"
-    debug "^4.3.5"
+    debug "^4.3.4"
+    events "^3.3.0"
     fake-mediastreamtrack "^1.2.0"
     h264-profile-level-id "^2.0.0"
-    npm-events-package "npm:events@^3.3.0"
     queue-microtask "^1.2.3"
     sdp-transform "^2.14.2"
     supports-color "^9.4.0"
-    ua-parser-js "^1.0.38"
+    ua-parser-js "^1.0.37"
 
 memoize-one@^5.0.0:
   version "5.2.1"
@@ -7389,11 +7374,6 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/normalize-path/-/normalize-path-3.0.0.tgz"
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
-
-"npm-events-package@npm:events@^3.3.0":
-  version "3.3.0"
-  resolved "https://registry.npmjs.org/events/-/events-3.3.0.tgz"
-  integrity sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==
 
 npm-run-path@^4.0.1:
   version "4.0.1"
@@ -8145,14 +8125,6 @@ react-native@*:
     ws "^6.2.3"
     yargs "^17.6.2"
 
-"react-redux@^7.2.1 || ^8.1.3 || ^9.0.0", react-redux@^9.1.1:
-  version "9.1.2"
-  resolved "https://registry.npmjs.org/react-redux/-/react-redux-9.1.2.tgz"
-  integrity sha512-0OA4dhM1W48l3uzmv6B7TXPCGmokUU4p1M44DGN2/D9a1FjVPukVjER1PcPX97jIg6aUeLq1XJo1IpfbgULn0w==
-  dependencies:
-    "@types/use-sync-external-store" "^0.0.3"
-    use-sync-external-store "^1.0.0"
-
 react-refresh@^0.14.0:
   version "0.14.2"
   resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.14.2.tgz"
@@ -8186,7 +8158,7 @@ react-style-singleton@^2.2.1:
     invariant "^2.2.4"
     tslib "^2.0.0"
 
-react@*, "react@^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc", "react@^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc", "react@^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18", "react@^16.x || ^17.x || ^18.x || ^19.0.0 || ^19.0.0-rc", "react@^18 || ^19", react@^18.0, react@^18.2.0, react@^18.3.1, "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=16.13.1, react@>=16.8, react@>=16.8.0, react@>=18, react@>=18.0.0:
+react@*, "react@^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc", "react@^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc", "react@^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18", "react@^16.x || ^17.x || ^18.x || ^19.0.0 || ^19.0.0-rc", "react@^18 || ^19", react@^18.2.0, react@^18.3.1, "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=16.13.1, react@>=16.8, react@>=16.8.0, react@>=18, react@>=18.0.0:
   version "18.3.1"
   resolved "https://registry.npmjs.org/react/-/react-18.3.1.tgz"
   integrity sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==
@@ -8432,9 +8404,9 @@ rimraf@~2.6.2:
   dependencies:
     glob "^7.1.3"
 
-"rtcstats@github:whereby/rtcstats#5.4.1":
-  version "5.4.1"
-  resolved "git+ssh://git@github.com/whereby/rtcstats.git#63bcb6420d76d34161b39e494524ae73aa6dd70d"
+"rtcstats@github:whereby/rtcstats#5.4.0":
+  version "5.4.0"
+  resolved "git+ssh://git@github.com/whereby/rtcstats.git#6f6623b4b53e9f6b41f530339793de227f34ea51"
 
 run-parallel@^1.1.9:
   version "1.2.0"
@@ -8442,11 +8414,6 @@ run-parallel@^1.1.9:
   integrity sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==
   dependencies:
     queue-microtask "^1.2.2"
-
-runes@^0.4.3:
-  version "0.4.3"
-  resolved "https://registry.npmjs.org/runes/-/runes-0.4.3.tgz"
-  integrity sha512-K6p9y4ZyL9wPzA+PMDloNQPfoDGTiFYDvdlXznyGKgD10BJpcAosvATKrExRKOrNLgD8E7Um7WGW0lxsnOuNLg==
 
 safe-array-concat@^1.1.2:
   version "1.1.2"
@@ -9267,7 +9234,7 @@ typescript@^5, typescript@^5.3.3, typescript@>=3.3.1, typescript@>=4.2.0, typesc
   resolved "https://registry.npmjs.org/typescript/-/typescript-5.7.2.tgz"
   integrity sha512-i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==
 
-ua-parser-js@^1.0.37, ua-parser-js@^1.0.38:
+ua-parser-js@^1.0.37:
   version "1.0.39"
   resolved "https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-1.0.39.tgz"
   integrity sha512-k24RCVWlEcjkdOxYmVJgeD/0a1TiSpqLg+ZalVGV9lsnr4yqu0w7tX/x2xX6G4zpkgQnRf89lxuZ1wsbjXM8lw==
@@ -9459,7 +9426,7 @@ use-sidecar@^1.1.2:
     detect-node-es "^1.1.0"
     tslib "^2.0.0"
 
-use-sync-external-store@^1.0.0, use-sync-external-store@>=1.2.0, use-sync-external-store@1.2.0:
+use-sync-external-store@>=1.2.0, use-sync-external-store@1.2.0:
   version "1.2.0"
   resolved "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz"
   integrity sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==

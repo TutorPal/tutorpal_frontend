@@ -105,15 +105,12 @@ const TutorProfile = () => {
                             {offer.status.charAt(0).toUpperCase() + offer.status.slice(1)}
                           </span>
                           {offer.status === 'accepted' && (
-                            <Button
-                            onClick={() => {
-                              
-                              window.location.href = '/video-session';
-                          }}
+                            <a href="/video-session"> <Button
                               className="bg-blue-600 hover:bg-blue-700 text-white"
                             >
                               Start Session
-                            </Button>
+                            </Button></a>
+                            
                           )}
                         </div>
                       )}
