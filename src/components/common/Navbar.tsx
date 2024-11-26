@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
@@ -43,6 +41,9 @@ const Navbar = () => {
           </Link>
           <Link href="#about" className="hover:text-white">
             About Us
+          </Link>
+          <Link href="/tutor-dashboard" className="hover:text-white">
+            Tutor Dashboard
           </Link>
           {!isInstructor &&
           <Link href="/student-profile" className="hover:text-white">
