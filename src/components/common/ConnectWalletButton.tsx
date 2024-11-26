@@ -17,8 +17,18 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 // import CONTRACT_ABI from '@/abi/tutorPalAbi'
 // import { tutorPalAbi } from "@/abi/tutorPalAbi";
 import UserRegistrationFlow from "../UserRegistration";
+import { User } from 'lucide-react';
+import { useRecoilState } from 'recoil';
+import { userProfileState } from '@/store/atoms/userProfileAtom';
+import Link from 'next/link';
 
 const ConnectWalletButton = () => {
+
+  const [user] = useRecoilState(userProfileState);
+  // const user = useRecoilValue(userProfileState)
+
+  const isInstructor = user[1] === 2;
+  const isStudent = user[1] === 1;
   // const { toast } = useToast();
 
   // const handleConnect = async () => {
@@ -103,7 +113,7 @@ const ConnectWalletButton = () => {
               }
 
               return (
-                <div style={{ display: 'flex', gap: 12 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                   <button
                     onClick={openChainModal}
                     style={{ display: 'flex', alignItems: 'center' }}
@@ -139,6 +149,23 @@ const ConnectWalletButton = () => {
                       ? ` (${account.displayBalance})`
                       : ''}
                   </button>
+
+                  <div>
+                    {isInstructor && 
+                      <>
+                        <Link href="/tutor">
+                          <User className='animate-pulse' />
+                        </Link>
+                      </>
+                    }
+                    {isStudent && 
+                      <>
+                        <Link href="/tutor">
+                          <User className='animate-pulse' />
+                        </Link>
+                      </>
+                    }
+                  </div>
                 </div>
               );
             })()}
