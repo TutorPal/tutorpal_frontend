@@ -54,7 +54,7 @@ export default function CoursesPage() {
   console.log("TOTAL", totalCourses)
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen bg-white flex-col">
       <Header />
       <main className="flex-1 mx-auto">
         <section className="container py-12 md:py-24">

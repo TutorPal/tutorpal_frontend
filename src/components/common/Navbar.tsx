@@ -36,6 +36,9 @@ const Navbar = () => {
           <Link href="/tutor" className="hover:text-white">
             Tutor Profile
           </Link>
+          <Link href="/student/dashboard" className="hover:text-white">
+            Student Dashbord
+          </Link>
           <Link href="#about" className="hover:text-white">
             About Us
           </Link>
