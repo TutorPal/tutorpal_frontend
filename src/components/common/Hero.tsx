@@ -4,7 +4,6 @@ import { Button } from "../ui/button";
 // import { FaChalkboardTeacher, FaUserGraduate } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import pict from "../img/image.png"
 
 const Hero = () => {
 
@@ -13,14 +12,14 @@ const Hero = () => {
     const handleNavigation = (): void => {
         router.push('/uploadForm'); 
     };
-  return (<>
-    <section className="flex bg-hero-img bg-cover flex-col items-center justify-center min-h-screen px-6 text-white">
+  return (
+    <section className="flex flex-col items-center justify-center min-h-screen px-6 bg-gradient-to-b from-indigo-600 via-purple-600 to-pink-500 text-white">
       <div className="max-w-4xl w-full text-center space-y-8">
-        <h1 className="text-7xl text-left md:text-5xl font-extrabold leading-tight">
-        <span className="text-black text-stroke-[1px] text-stroke-[#B85614] ">Unlock Your Learning</span>  <br /> Potential with TutorPal
+        <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+          Decentralized Knowledge Exchange Platform
         </h1>
 
-        <p className="text-lg md:text-xl text-left max-w-2xl pl-2 py-4 bg-[#B85614]/60 border border-transparent rounded-lg">
+        <p className="text-lg md:text-xl max-w-2xl mx-auto">
           Empowering learners and educators through a secure, peer-to-peer
           platform. Share knowledge, earn rewards, and connect globally without
           intermediaries.
@@ -31,11 +30,11 @@ const Hero = () => {
             <FaUserGraduate /> Explore as Learner
           </Button> */}
             <Link href="/courses">
-              <Button className="text-white border-[1px] border-white hover:bg-[#B85614] ">Browse Courses</Button>
+              <Button className="text-white border-[1px] border-white">Browse Courses</Button>
             </Link>
 
             <Link href="/courses/create">
-              <Button className="text-white border-[1px] border-white hover:bg-[#B85614] ">Create a Course</Button>
+              <Button className="text-white border-[1px] border-white">Create a Course</Button>
             </Link>
 
           {/* <Button className="flex items-center gap-2 bg-pink-800 hover:bg-pink-700 px-6 py-3 text-lg font-semibold rounded-md w-full sm:w-auto">
@@ -46,9 +45,9 @@ const Hero = () => {
             type="button"
             className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
             onClick={handleNavigation}
-          >
+        >
             Upload course
-          </button>
+        </button>
 
         </div>
 
@@ -68,33 +67,6 @@ const Hero = () => {
         </div>
       </div>
     </section>
-    <section className="min-h-screen  px-6 py-[120px] flex justify-evenly flex-wrap mx-auto">
-      <div className="flex flex-col justify-between w-[45%] ">
-        <h2 className="text-5xl text-left font-extrabold leading-[4rem]	">Unlock Your Potential with a Secured, Ownership-Driven Educational Resources</h2>
-        <div>
-        <p>Secure your learning with resources you truly own. Empower your growth and unlock your potential.</p>
-        <br />
-        <br />
-        <p>Secure your learning with resources you truly own. Empower your growth and unlock your potential.</p>
-        </div>
-        <div className="flex ">
-          <div>
-            <img src="/Relume.svg" alt="" />
-            <h3>Empower Learning</h3>
-            <p>Access a wealth of knowledge with full ownership and security.</p>
-          </div>
-          <div>
-            <img src="/Relume.svg" alt="" />
-            <h3>Join Us</h3>
-            <p>Become part of a community that values education and innovation.</p>
-          </div>
-        </div>
-      </div>
-      <div className="w-[45%]">
-        <img src="/image.png" alt="" className="w-[90%] h-auto" />
-      </div>
-    </section>
-    </>
   );
 };
 
