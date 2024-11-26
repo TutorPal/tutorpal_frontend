@@ -70,7 +70,16 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backgroundImage: {
+  			'hero-img': "url('/hero-img.jpg')",
+  			'im1': "url('/image.png')",
+  			'twinkles-sp': "url('/Twinkles1.svg')"
+  		},
     },
+
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@designbycode/tailwindcss-text-stroke")
+  ],
 } satisfies Config;

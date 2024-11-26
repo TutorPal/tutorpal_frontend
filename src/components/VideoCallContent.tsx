@@ -1,7 +1,9 @@
+"use client";
 import * as React from "react";
 import { useRoomConnection } from "@whereby.com/browser-sdk/react";
 import IconButton from "../components/common/IconButton";
 import ChatInput from "../components/common/ChatInput";
+import "./Video.css";
 
 // Replace this with your own Whereby room URL
 const ROOM_URL = "https://dekxp.whereby.com/9ea743ed-f624-40d7-982b-776b606f0aaf";

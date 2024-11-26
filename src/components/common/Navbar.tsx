@@ -41,6 +41,9 @@ const Navbar = () => {
           <Link href="#about" className="hover:text-white">
             About Us
           </Link>
+          <Link href="/tutor-dashboard" className="hover:text-white">
+            Tutor Dashboard
+          </Link>
           {!isInstructor &&
           <Link href="/student-profile" className="hover:text-white">
             Profile
