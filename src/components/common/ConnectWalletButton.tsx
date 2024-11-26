@@ -83,19 +83,20 @@ const ConnectWalletButton = () => {
                 userSelect: 'none',
               },
             })}
+            className='bg-gradient-to-r from-teal-500 to-emerald-500 text-white p-2'
           >
             {(() => {
               if (!connected) {
                 return (
                   <button onClick={openConnectModal} type="button">
-                    Connect Wallet
+                    Get Started
                   </button>
                 );
               }
 
               if (chain.unsupported) {
                 return (
-                  <button onClick={openChainModal} type="button">
+                  <button onClick={openChainModal} type="button" className='bg-gradient-to-r from-teal-500 to-emerald-500 text-white p-2'>
                     Wrong network
                   </button>
                 );
@@ -107,6 +108,7 @@ const ConnectWalletButton = () => {
                     onClick={openChainModal}
                     style={{ display: 'flex', alignItems: 'center' }}
                     type="button"
+                    className='bg-gradient-to-r from-teal-500 to-emerald-500 text-white p-2'
                   >
                     {chain.hasIcon && (
                       <div

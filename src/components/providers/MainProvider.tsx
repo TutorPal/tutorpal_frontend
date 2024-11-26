@@ -21,6 +21,7 @@ import {
   liskSepolia
 } from 'wagmi/chains';
 import { RecoilRoot } from 'recoil';
+import { ThemeProvider } from '../theme-provider';
 
 interface MainProviderProps {
   children: ReactNode;
@@ -48,7 +49,9 @@ const MainProvider = ({ children }: Readonly<MainProviderProps>) => {
         <RecoilRoot>
         <QueryClientProvider client={queryClient}>
         <RainbowKitProvider>
-          {children}
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
           <Toaster />
         </RainbowKitProvider>
         </QueryClientProvider>
