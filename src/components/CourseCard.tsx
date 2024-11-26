@@ -1,12 +1,21 @@
 "use client"
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from './ui/button'
-import { formatUnits } from 'viem'
+import { formatUnits, parseEther } from 'viem'
 import { formatAddress } from '@/utils/formatAddress'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from './ui/badge'
 import { Clock, DollarSign, Star, Users } from 'lucide-react'
+import { useWriteContract } from 'wagmi'
+import { tutorPalMarketAddress } from '@/utils/constants'
+import { tutorPalAbi } from '@/abi/tutorPalAbi'
+import { toast } from '@/hooks/use-toast'
+import { waitForTransactionReceipt } from '@wagmi/core'
+import { config } from '@/utils/config'
+import { motion } from "framer-motion"
+import { simulateContract } from 'viem/actions'
+// import { waitForTransactionReceipt } from 'viem/actions'
 
 
 // interface ICourse {
@@ -27,7 +36,7 @@ interface ICourse {
     totalMinted: number,
     timestamp: number,
     // course: {
-    //   description: "Learn the fundamentals of blockchain technology and its applications.",
+    //   description: "",
     //   duration: "6 weeks",
     //   level: "Beginner"
     // },
@@ -35,6 +44,108 @@ interface ICourse {
 }
 
 const CourseCard = ({ course, index }:{ course: any, index: any }) => {
+
+    // function buyCourse(uint256 _courseId) external payable {
+    // const [courseId, setCourseId] = useState(0)
+    const [isLoading, setIsLoading] = useState(false)
+    const { writeContract, isPending, isSuccess, writeContractAsync } = useWriteContract();
+
+    const handleBuyCourse = async (courseId:number, price:any) => {
+        try {
+            setIsLoading(true)
+            // const {hash} = writeContract({
+            //   address: tutorPalMarketAddress,
+            //   abi: tutorPalAbi,
+            //   functionName: 'buyCourse',
+            //   args: [BigInt(courseId)]
+            // });
+console.log("Here first")
+            const priceString = price.toString()
+            console.log(priceString)
+
+            const hash = await writeContractAsync({
+                address: tutorPalMarketAddress,
+                abi: tutorPalAbi,
+                functionName: 'buyCourse',
+                args: [BigInt(courseId)],
+                value: priceString,
+                gas: BigInt('500000'),
+  
+            })
+            console.log("Here second")
+
+            // Show initial transaction sent toast
+            toast({
+                title: "Transaction Sent",
+                description: "Your purchase is being processed...",
+            })
+
+            try {
+                // Wait for transaction confirmation
+                const receipt = await waitForTransactionReceipt(config, { hash });
+                console.log("Receipt", receipt);
+              
+                
+                if (receipt.status === 'success') {
+                  toast({
+                    title: "Purchase Successful!",
+                    description: "You have successfully purchased the course.",
+                  });
+                } 
+                
+                else if (receipt.status === 'reverted') {
+                  toast({
+                    title: "Transaction Reverted",
+                    description: "Your purchase could not be completed. Please try again.",
+                  });
+                } 
+                
+                else {
+                  toast({
+                    title: "Transaction Failed",
+                    description: `Unexpected status: ${receipt.status}. Please contact support.`,
+                  });
+                }
+              } catch (error) {
+                
+                console.error("Transaction error:", error);
+                toast({
+                  title: "Error",
+                  description: "An unexpected error occurred during the transaction.",
+                });
+              }
+
+
+            // const receipt = await waitForTransactionReceipt(config, { hash });
+
+            // if (receipt.status === 'success') {
+            //     toast({
+            //       title: "Purchase Successful!",
+            //       description: "You have successfully purchased the course.",
+            //     })
+            // } else {
+            //     toast({
+            //       title: "Transaction Failed",
+            //       description: "Your purchase could not be completed. Please try again.",
+            //     })
+            // }
+
+        
+        } catch (error) {
+
+            console.log("ERRORRRR", error)
+            console.error('Transaction error:', error)
+
+            toast({
+                title: "Error",
+                description: "Something went wrong. Please try again.",
+            })
+
+        } finally {
+            setIsLoading(false)
+        }
+    };
+
   return (
     <>
 
@@ -66,16 +177,31 @@ const CourseCard = ({ course, index }:{ course: any, index: any }) => {
                 </div>
                 </div>
             </CardContent>
-            <CardFooter className="bg-gradient-to-br from-teal-500/5 to-emerald-500/5 flex justify-between items-center">
+            <CardFooter className="bg-gradient-to-br from-teal-500/5 to-emerald-500/5 flex justify-between items-center py-2">
                 <div className="flex items-center">
                 <DollarSign className="w-4 h-4 mr-1 text-teal-500" />
                 <span className="font-bold">
                     {parseFloat(course.price) / 1e18} ETH
                 </span>
                 </div>
-                <Button className="bg-gradient-to-r from-teal-500 to-emerald-500 text-white">
-                Enroll Now
-                </Button>
+                <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                >
+
+                    <Button disabled={isLoading} onClick={() => handleBuyCourse(course.courseId, course.price)} className="bg-gradient-to-r from-teal-500 to-emerald-500 text-white">
+                    {isLoading ? (
+                        <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
+                        />
+                    ) : (
+                        'Buy Course'
+                    )}
+                    
+                    </Button>
+                </motion.div>
             </CardFooter>
         </Card>
 

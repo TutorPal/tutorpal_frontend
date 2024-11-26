@@ -49,9 +49,9 @@ const MainProvider = ({ children }: Readonly<MainProviderProps>) => {
         <RecoilRoot>
         <QueryClientProvider client={queryClient}>
         <RainbowKitProvider>
-          <ThemeProvider>
+          {/* <ThemeProvider> */}
             {children}
-          </ThemeProvider>
+          {/* </ThemeProvider> */}
           <Toaster />
         </RainbowKitProvider>
         </QueryClientProvider>
