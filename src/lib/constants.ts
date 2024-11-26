@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export const colors = {
     primary: '#20B2AA',
     background: '#E0F2F1',
@@ -9,12 +11,11 @@ export const colors = {
   } as const
   
   export const sidebarItems = [
-    { name: 'Dashboard', icon: 'Home' },
-    { name: 'Explore', icon: 'Compass' },
-    { name: 'Create', icon: 'PlusSquare' },
-    { name: 'Manage', icon: 'Settings' },
-    { name: 'Messages', icon: 'MessageSquare' },
-    { name: 'Notifications', icon: 'Bell' }
+    { name: 'Dashboard', href: '', icon: 'Home' },
+    // { name: 'Explore', icon: 'Compass' },
+    { name: 'Book session', href: '/book-session/tutorId', icon: 'PlusSquare' },
+    { name: 'Manage', href: '', icon: 'Settings' },
+    { name: 'Notifications', href: '',  icon: 'Bell' }
   ] as const
   
   

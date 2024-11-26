@@ -7,7 +7,7 @@ const Footer = () => {
         <div>
           <h2 className="text-lg font-semibold text-white mb-4">About DeKXP</h2>
           <p className="text-sm">
-            DeKXP is a decentralized platform designed to connect learners and
+            TutorPal is a decentralized platform designed to connect learners and
             tutors globally, enabling direct knowledge exchange without
             intermediaries.
           </p>
