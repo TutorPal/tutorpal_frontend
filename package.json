@@ -42,11 +42,7 @@
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
-<<<<<<< HEAD
-    "recharts": "^2.13.3",
-=======
     "react-progress": "^0.0.12",
->>>>>>> a58662f2e4a654baa627de55f5b07b79ab8bb1ed
     "recoil": "^0.7.7",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",

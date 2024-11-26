@@ -1,5 +1,4 @@
 "use client"
-
 import { Users, BookOpen, DollarSign, Star, Calendar } from 'lucide-react'
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts"
 import { Sidebar } from "@/components/common/SidebarT"

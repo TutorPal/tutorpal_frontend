@@ -4,6 +4,8 @@ import { Header } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import Image from "next/image"
 import { BookOpen, Users, Zap } from 'lucide-react'
+import Workflow from "@/components/common/workflow-steps"
+
 
 export default function Home() {
   return (
@@ -21,10 +23,10 @@ export default function Home() {
                 Experience the future of education with our decentralized learning platform
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Button className="bg-gradient-to-r from-teal-500 to-emerald-500 text-white">
+                <Button className="bg-gradient-to-r from-teal-500 to-emerald-500 hover:bg-red-600 text-white">
                   Get Started
                 </Button>
-                <Button variant="outline">Learn More</Button>
+                <Button variant="outline" className="hover:bg-red-600 border hover:border-none">Learn More</Button>
               </div>
             </div>
             <div className="mx-auto aspect-video overflow-hidden rounded-xl border bg-gradient-to-br from-teal-50 to-emerald-50">
@@ -76,29 +78,7 @@ export default function Home() {
         </section>
 
         {/* Workflow Section */}
-        <section className="container py-12 md:py-24 bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-teal-950/50 dark:to-emerald-950/50" id="workflow">
-          <h2 className="text-3xl font-bold tracking-tighter text-center mb-12">How It Works</h2>
-          <div className="grid gap-8 md:grid-cols-3">
-            {[1, 2, 3].map((step) => (
-              <div key={step} className="flex flex-col items-center text-center space-y-4">
-                <div className="h-16 w-16 rounded-full bg-gradient-to-r from-teal-500 to-emerald-500 flex items-center justify-center text-white font-bold text-xl">
-                  {step}
-                </div>
-                <Image
-                  alt={`Workflow Step ${step}`}
-                  className="rounded-lg"
-                  height="200"
-                  src="/placeholder.svg"
-                  width="300"
-                />
-                <h3 className="text-xl font-bold">Step {step}</h3>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Description for step {step}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <Workflow />
 
         {/* Testimonials Section */}
         <section className="container py-12 md:py-24" id="testimonials">
@@ -133,7 +113,7 @@ export default function Home() {
             <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
               Start your decentralized learning journey with TutorPal
             </p>
-            <Button className="bg-gradient-to-r from-teal-500 to-emerald-500 text-white">
+            <Button className="bg-gradient-to-r from-teal-500 hover:bg-red-600 to-emerald-500 text-white">
               Get Started Now
             </Button>
           </div>
