@@ -160,7 +160,7 @@ const ConnectWalletButton = () => {
                     }
                     {isStudent && 
                       <>
-                        <Link href="/tutor">
+                        <Link href="/student/dashboard">
                           <User className='animate-pulse' />
                         </Link>
                       </>

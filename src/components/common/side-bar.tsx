@@ -20,7 +20,7 @@ export function Sidebar() {
           return (
             <a
               key={item.name}
-              href="#"
+              href={item.href || ""}
               className={cn(
                 "flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors",
                 item.name === "Dashboard" && "bg-primary/10 text-primary"

@@ -11,6 +11,9 @@ const nextConfig = {
   experimental: {
     
   },
+  watchOptions: {
+    ignored: ['**/node_modules', '**/.git', '**/dist']
+  }
 };
 
 export default nextConfig;

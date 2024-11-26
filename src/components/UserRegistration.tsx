@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { motion } from "framer-motion"
 
 // Assuming you have your contract ABI and address imported
 // import { contractABI, contractAddress } from './contract-config';
@@ -12,6 +13,7 @@ import { tutorPalAbi } from '@/abi/tutorPalAbi';
 import { tutorPalMarketAddress } from '@/utils/constants';
 import { userProfileState } from '@/store/atoms/userProfileAtom';
 import { useRecoilState } from 'recoil';
+import { Label } from './ui/label';
 
 // Enum type matching your Solidity enum
 const RoleType = {
@@ -79,40 +81,105 @@ const UserRegistrationFlow = () => {
 
   return (
     <Dialog open={isRegistrationModalOpen} onOpenChange={setIsRegistrationModalOpen}>
-      <DialogContent className='bg-white'>
+      <DialogContent className="sm:max-w-[425px] bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-teal-950/50 dark:to-emerald-950/50 border-teal-200 dark:border-teal-800">
         <DialogHeader>
-          <DialogTitle>Complete Your Profile</DialogTitle>
+          <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-teal-500 to-emerald-500 bg-clip-text text-transparent">
+            Complete Your Profile
+          </DialogTitle>
         </DialogHeader>
         
-        <div className="space-y-4">
-          <Input 
-            placeholder="Display Name" 
-            value={displayName}
-            onChange={(e) => setDisplayName(e.target.value)}
-          />
+        <div className="space-y-6 py-4">
+          <div className="space-y-2">
+            <Label htmlFor="displayName" className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              Display Name
+            </Label>
+            <Input 
+              id="displayName"
+              placeholder="Enter your display name" 
+              value={displayName}
+              onChange={(e) => setDisplayName(e.target.value)}
+              className="border-teal-200 dark:border-teal-800 focus:ring-teal-500 focus:border-teal-500"
+            />
+          </div>
           
-          <Select 
-            value={selectedRole.toString()} 
-            onValueChange={(value) => setSelectedRole(Number(value))}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="Select Role" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value={RoleType.Student.toString()}>Student</SelectItem>
-              <SelectItem value={RoleType.Instructor.toString()}>Instructor</SelectItem>
-            </SelectContent>
-          </Select>
+          <div className="space-y-2">
+            <Label htmlFor="role" className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              Select Role
+            </Label>
+            <Select 
+              value={selectedRole.toString()} 
+              onValueChange={(value) => setSelectedRole(Number(value))}
+            >
+              <SelectTrigger id="role" className="border-teal-200 dark:border-teal-800 focus:ring-teal-500 focus:border-teal-500">
+                <SelectValue placeholder="Select your role" />
+              </SelectTrigger>
+              <SelectContent className='bg-white'>
+                <SelectItem value={RoleType.Student.toString()}>Student</SelectItem>
+                <SelectItem value={RoleType.Instructor.toString()}>Instructor</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
           
-          <Button 
-            onClick={handleRegisterUser} 
-            disabled={!displayName || selectedRole === RoleType.NotRegistered || isPending}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            {isPending ? 'Registering...' : 'Register'}
-          </Button>
+            <Button 
+              onClick={handleRegisterUser} 
+              disabled={!displayName || selectedRole === RoleType.NotRegistered || isPending}
+              className="w-full bg-gradient-to-r from-teal-500 to-emerald-500 text-white hover:from-teal-600 hover:to-emerald-600 focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transition-all duration-200"
+            >
+              {isPending ? (
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                  className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
+                />
+              ) : (
+                'Register'
+              )}
+            </Button>
+          </motion.div>
         </div>
       </DialogContent>
     </Dialog>
+
+
+    // <Dialog open={isRegistrationModalOpen} onOpenChange={setIsRegistrationModalOpen}>
+    //   <DialogContent className='bg-white'>
+    //     <DialogHeader>
+    //       <DialogTitle>Complete Your Profile</DialogTitle>
+    //     </DialogHeader>
+        
+    //     <div className="space-y-4">
+    //       <Input 
+    //         placeholder="Display Name" 
+    //         value={displayName}
+    //         onChange={(e) => setDisplayName(e.target.value)}
+    //       />
+          
+    //       <Select 
+    //         value={selectedRole.toString()} 
+    //         onValueChange={(value) => setSelectedRole(Number(value))}
+    //       >
+    //         <SelectTrigger>
+    //           <SelectValue placeholder="Select Role" />
+    //         </SelectTrigger>
+    //         <SelectContent>
+    //           <SelectItem value={RoleType.Student.toString()}>Student</SelectItem>
+    //           <SelectItem value={RoleType.Instructor.toString()}>Instructor</SelectItem>
+    //         </SelectContent>
+    //       </Select>
+          
+    //       <Button 
+    //         onClick={handleRegisterUser} 
+    //         disabled={!displayName || selectedRole === RoleType.NotRegistered || isPending}
+    //       >
+    //         {isPending ? 'Registering...' : 'Register'}
+    //       </Button>
+    //     </div>
+    //   </DialogContent>
+    // </Dialog>
   );
 };
 

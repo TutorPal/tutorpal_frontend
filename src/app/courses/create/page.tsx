@@ -12,6 +12,8 @@ import LoadingSpinner from '@/components/common/LoadingSpinner'
 import { useWriteContract } from 'wagmi'
 import { tutorPalMarketAddress } from '@/utils/constants'
 import { tutorPalAbi } from '@/abi/tutorPalAbi'
+import { waitForTransactionReceipt } from '@wagmi/core'
+import { config } from "@/utils/config"
 
 interface Metadata {
   title: string;
@@ -53,7 +55,7 @@ export default function CreateCourse() {
 };
 
 // Write contract hook for user registration
-const { writeContract, isPending, isSuccess } = useWriteContract();
+const { writeContract, isPending, isSuccess, writeContractAsync } = useWriteContract();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -64,21 +66,68 @@ const { writeContract, isPending, isSuccess } = useWriteContract();
     //     uint256 _maxSupply,
     //     uint256 _price,
     //     uint16 _royalty
+console.log("before write here")
 
-    writeContract({
-      address: tutorPalMarketAddress,
-      abi: tutorPalAbi,
-      functionName: 'createCourse',
-      args: [
-        formData.title, 
-        formData.symbol, 
-        responseUrls?.metadataUrl, 
-        formData.maxSupply, 
-        formData.price,
-        formData.royalty
-      ]
-    });
+    try {
+      
+      const hash = await writeContractAsync({
+        address: tutorPalMarketAddress,
+        abi: tutorPalAbi,
+        functionName: 'createCourse',
+        args: [
+          formData.title, 
+          formData.symbol, 
+          responseUrls?.metadataUrl, 
+          formData.maxSupply, 
+          formData.price,
+          formData.royalty
+        ]
+      });
 
+      // Show initial transaction sent toast
+      toast({
+        title: "Transaction Sent",
+        description: "Your transaction is being processed...",
+      })
+
+      // Wait for transaction confirmation
+      const receipt = await waitForTransactionReceipt(config, { hash });
+
+      console.log("REceipt", receipt)
+                  if (receipt.status === 'success') {
+                      toast({
+                        title: "Course Creation Successful!",
+                        description: "You have successfully created a course.",
+                      })
+
+                      // Reset form after submission
+                      setFormData({
+                        title: '',
+                        symbol: '',
+                        metadataURI: '',
+                        maxSupply: '',
+                        price: '',
+                        royalty: '',
+                      })
+                  } else {
+                      toast({
+                        title: "Transaction Failed",
+                        description: "Your transaction could not be completed. Please try again.",
+                      })
+                  }
+      
+                  if(receipt.status === "reverted") {
+                      toast({
+                          title: "Transaction Failed",
+                          description: "Your transaction could not be completed. Please try again.",
+                      })
+                  }
+
+      
+    } catch (error) {
+      console.log("BIG ERROR", error)
+    }
+console.log("after write here?")
     console.log('Form submitted:', formData)
     if(isSuccess) {
       toast({
@@ -86,15 +135,6 @@ const { writeContract, isPending, isSuccess } = useWriteContract();
         description: "Your course has been successfully created.",
       })
     }
-    // Reset form after submission
-    setFormData({
-      title: '',
-      symbol: '',
-      metadataURI: '',
-      maxSupply: '',
-      price: '',
-      royalty: '',
-    })
   }
 
   const handleFileUpload = async (e: FormEvent) => {
