@@ -55,7 +55,7 @@ export default function CreateCourse() {
 };
 
 // Write contract hook for user registration
-const { writeContract, isPending, isSuccess, writeContractAsync } = useWriteContract();
+  const { writeContract, isPending, isSuccess, writeContractAsync } = useWriteContract();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -192,7 +192,7 @@ console.log("after write here?")
     } finally {
         setIsLoading(false);
     }
-};
+  };
 
   return (
     <>
@@ -229,21 +229,21 @@ console.log("after write here?")
         </div>
 
         <div className="mb-4 w-full">
-                    <label className="block mb-2 text-black">Course File</label>
-                    <div className='flex w-full'>
-                      <div>
+            <label className="block mb-2 text-black">Course File</label>
+            <div className='flex w-full'>
+              <div>
 
-                    <Input
-                        type="file"
-                        onChange={handleFileChange}
-                        className="w-full p-2 border rounded text-black"
-                    />
-                      </div>
-                      <div>
-                        <button onClick={handleFileUpload} disabled={isLoading} className='rounded p-2 text-sm border'>{isLoading ? <LoadingSpinner /> : "proceed"}</button>
-                      </div>
-                    </div>
-                </div>
+            <Input
+                type="file"
+                onChange={handleFileChange}
+                className="w-full p-2 border rounded text-black"
+            />
+              </div>
+              <div>
+                <button onClick={handleFileUpload} disabled={isLoading} className='rounded p-2 text-sm border'>{isLoading ? <LoadingSpinner /> : "proceed"}</button>
+              </div>
+            </div>
+        </div>
 
         <div className="mb-4">
           <Label htmlFor="metadataURI">Metadata URI</Label>

@@ -1,33 +1,33 @@
 "use client"
 import { Users, BookOpen, DollarSign, Star, Calendar } from 'lucide-react'
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts"
-import { Sidebar } from "@/components/common/SidebarT"
-import { StatCard } from "@/components/common/Stats-Card"
-import { Card } from "@/components/ui/card"
+// import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts"
+// import { Sidebar } from "@/components/common/SidebarT"
+// import { StatCard } from "@/components/common/Stats-Card"
+// import { Card } from "@/components/ui/card"
 
-const stats = [
-  { title: "Total Student", value: "427", icon: Users, iconClassName: "bg-purple-100" },
-  { title: "Active Courses", value: "5", icon: BookOpen, iconClassName: "bg-blue-100" },
-  { title: "Total Earnings", value: "$13,876", icon: DollarSign, iconClassName: "bg-green-100" },
-  { title: "Rating/Reviews", value: "231", icon: Star, iconClassName: "bg-yellow-100" },
-  { title: "Pending Consult", value: "3", icon: Calendar, iconClassName: "bg-red-100" },
-]
+// const stats = [
+//   { title: "Total Student", value: "427", icon: Users, iconClassName: "bg-purple-100" },
+//   { title: "Active Courses", value: "5", icon: BookOpen, iconClassName: "bg-blue-100" },
+//   { title: "Total Earnings", value: "$13,876", icon: DollarSign, iconClassName: "bg-green-100" },
+//   { title: "Rating/Reviews", value: "231", icon: Star, iconClassName: "bg-yellow-100" },
+//   { title: "Pending Consult", value: "3", icon: Calendar, iconClassName: "bg-red-100" },
+// ]
 
-const responseData = [
-  { month: "Jan", completed: 40, uncompleted: 20 },
-  { month: "Feb", completed: 30, uncompleted: 25 },
-  { month: "Mar", completed: 20, uncompleted: 15 },
-  { month: "Apr", completed: 35, uncompleted: 20 },
-  { month: "May", completed: 25, uncompleted: 18 },
-  { month: "Jun", completed: 30, uncompleted: 22 },
-  { month: "Jul", completed: 28, uncompleted: 20 },
-]
+// const responseData = [
+//   { month: "Jan", completed: 40, uncompleted: 20 },
+//   { month: "Feb", completed: 30, uncompleted: 25 },
+//   { month: "Mar", completed: 20, uncompleted: 15 },
+//   { month: "Apr", completed: 35, uncompleted: 20 },
+//   { month: "May", completed: 25, uncompleted: 18 },
+//   { month: "Jun", completed: 30, uncompleted: 22 },
+//   { month: "Jul", completed: 28, uncompleted: 20 },
+// ]
 
 export default function Dashboard() {
   return (
     <div className="flex h-screen bg-gray-50">
-      <Sidebar />
-      <main className="flex-1 overflow-y-auto p-8">
+      {/* <Sidebar /> */}
+      {/* <main className="flex-1 overflow-y-auto p-8">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold">Welcome Back, Shellz</h1>
@@ -51,14 +51,7 @@ export default function Dashboard() {
               </select>
             </div>
             <div className="h-[300px] w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={responseData}>
-                  <XAxis dataKey="month" />
-                  <YAxis />
-                  <Bar dataKey="completed" fill="#10B981" radius={[4, 4, 0, 0]} />
-                  <Bar dataKey="uncompleted" fill="#E5E7EB" radius={[4, 4, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
+              
             </div>
           </Card>
 
@@ -106,7 +99,7 @@ export default function Dashboard() {
             </div>
           </Card>
         </div>
-      </main>
+      </main> */}
     </div>
   )
 }
