@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { useRoomConnection } from "@whereby.com/browser-sdk/react";
+import { useRoomConnection, VideoView } from "@whereby.com/browser-sdk/react";
 import IconButton from "../components/common/IconButton";
 import ChatInput from "../components/common/ChatInput";
 import "./Video.css";
