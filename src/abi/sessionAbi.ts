@@ -12,6 +12,11 @@ export const sessionAbi = [
     },
     {
         "inputs": [],
+        "name": "SessionBooking__ContentCannotBeEmpty",
+        "type": "error"
+    },
+    {
+        "inputs": [],
         "name": "SessionBooking__IncorrectAmount",
         "type": "error"
     },
@@ -63,6 +68,11 @@ export const sessionAbi = [
     {
         "inputs": [],
         "name": "SessionBooking__SessionAlreadyCompleted",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "SessionBooking__TitleCannotBeEmpty",
         "type": "error"
     },
     {
@@ -161,6 +171,49 @@ export const sessionAbi = [
             {
                 "indexed": true,
                 "internalType": "uint256",
+                "name": "listingId",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "instructor",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "duration",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "title",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "content",
+                "type": "string"
+            }
+        ],
+        "name": "SessionListed",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "uint256",
                 "name": "offerId",
                 "type": "uint256"
             },
@@ -190,6 +243,31 @@ export const sessionAbi = [
             }
         ],
         "name": "SessionOffered",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "offerId",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "instructor",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "SessionRejected",
         "type": "event"
     },
     {
@@ -228,6 +306,40 @@ export const sessionAbi = [
         ],
         "name": "confirmSessionCompletion",
         "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint32",
+                "name": "duration",
+                "type": "uint32"
+            },
+            {
+                "internalType": "string",
+                "name": "title",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "content",
+                "type": "string"
+            }
+        ],
+        "name": "createSessionListing",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
         "stateMutability": "nonpayable",
         "type": "function"
     },
@@ -292,6 +404,73 @@ export const sessionAbi = [
                 "internalType": "struct ISessionBooking.SessionOffer",
                 "name": "",
                 "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "listingCounter",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "listings",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "listingId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint32",
+                "name": "duration",
+                "type": "uint32"
+            },
+            {
+                "internalType": "address",
+                "name": "instructor",
+                "type": "address"
+            },
+            {
+                "internalType": "bool",
+                "name": "isActive",
+                "type": "bool"
+            },
+            {
+                "internalType": "uint256",
+                "name": "timestamp",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "title",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "content",
+                "type": "string"
             }
         ],
         "stateMutability": "view",
@@ -396,6 +575,19 @@ export const sessionAbi = [
             }
         ],
         "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "offerId",
+                "type": "uint256"
+            }
+        ],
+        "name": "rejectOffer",
+        "outputs": [],
+        "stateMutability": "nonpayable",
         "type": "function"
     },
     {
