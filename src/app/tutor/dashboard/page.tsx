@@ -494,7 +494,7 @@ export default function TutorDashboard() {
                             <DialogHeader className="flex-shrink-0">
                             <DialogTitle>Create New Course</DialogTitle>
                             <DialogDescription>
-                                Set up a new course. Click create when you're done.
+                                Set up a new course. Click create when you&apos;re done.
                             </DialogDescription>
                             </DialogHeader>
                             <div className="flex-grow overflow-y-auto">
@@ -621,7 +621,7 @@ export default function TutorDashboard() {
                             <DialogHeader>
                             <DialogTitle>Create New Session</DialogTitle>
                             <DialogDescription>
-                                Set up a new tutoring session. Click create when you're done. 
+                                Set up a new tutoring session. Click create when you&apos;re done. 
                             </DialogDescription>
                             </DialogHeader>
                             <div className="grid gap-4 py-4">
