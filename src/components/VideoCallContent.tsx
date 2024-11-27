@@ -21,9 +21,9 @@ function VideSession() {
         },
     });
 
-    const { state, actions } = roomConnection;
+    const { state, actions, components } = roomConnection;
     const { localParticipant, remoteParticipants, screenshares, chatMessages } = state;
-    // const { VideoView } = components;
+    // const { VideoView } = ;
     const { toggleCamera, toggleMicrophone, startScreenshare, stopScreenshare, sendChatMessage } = actions;
 
     function getDisplayName(id: string) {
@@ -52,7 +52,7 @@ function VideSession() {
                 </div>
                 {localParticipant?.stream ? (
                     <div className="self-view-wrapper">
-                        {/* <VideoView mirror muted stream={localParticipant.stream} /> */}
+                        <VideoView mirror muted stream={localParticipant.stream} />
                         <p className="self-name">You</p>
                     </div>
                 ) : null}
@@ -61,7 +61,7 @@ function VideSession() {
             <div className="video-stage">
                 {remoteParticipants[0]?.stream ? (
                     <div className={screenshares.length ? "remote-view-small" : "remote-view-wrapper"}>
-                        {/* <VideoView stream={remoteParticipants[0].stream} /> */}
+                        <VideoView stream={remoteParticipants[0].stream} />
                         <p className={screenshares.length ? "screenshare-remote-name" : "remote-name"}>
                             {remoteParticipants[0].displayName}
                         </p>
@@ -69,7 +69,7 @@ function VideSession() {
                 ) : null}
                 {screenshares[0]?.stream ? (
                     <div className="screenshare-view-wrapper">
-                        {/* <VideoView stream={screenshares[0].stream} /> */}
+                        <VideoView stream={screenshares[0].stream} />
                     </div>
                 ) : null}
             </div>
